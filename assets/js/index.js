@@ -168,6 +168,20 @@ const displayPassword = (password) => {
 };
 // store password in local storage
 
+const writeToLocalStorage = (key, value) => {
+  // convert value to string
+  const stringifiedValue = JSON.stringify(value);
+
+  // set stringified value to LS for key name
+  localStorage.setItem(key, stringifiedValue);
+};
+
+const savePassword = () => {
+  if (newPassword != "") {
+    writeToLocalStorage($("#websiteInput").val(), newPassword);
+  }
+};
+
 // change page on click of button to view saved passwords
 
 // delete password
@@ -181,3 +195,4 @@ const deletePassword = () => {
 
 $("#optionForm").submit(handleSubmit);
 $("#delete").click(deletePassword);
+$("#save").click(savePassword);

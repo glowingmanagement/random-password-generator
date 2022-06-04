@@ -52,6 +52,7 @@ const characterChoice = [
   "#",
   "@",
 ];
+let newPassword = "";
 
 // onSubmit view user data and add to variables
 const handleSubmit = (event) => {
@@ -86,6 +87,7 @@ const handleSubmit = (event) => {
     const passwordString = shufflePassword.join("");
 
     displayPassword(passwordString);
+    newPassword = passwordString;
   }
 };
 
@@ -168,4 +170,14 @@ const displayPassword = (password) => {
 
 // change page on click of button to view saved passwords
 
+// delete password
+
+const deletePassword = () => {
+  newPassword = "";
+  displayPassword(newPassword);
+};
+
+// listeners
+
 $("#optionForm").submit(handleSubmit);
+$("#delete").click(deletePassword);

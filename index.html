@@ -23,10 +23,10 @@
         <h2 class="page-text">Please select your password requirements</h2>
         <div class="options-container">
             <h3>Please select password length (between 8 and 128 characters): <input type="number" id="character-length" min="8" max="128"></h3>
-            <div>
+            <form id="optionForm">
                 <h3>Please select which characters to use in the password:</h3>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="lowercase-choice" checked>
+                    <input class="form-check-input" type="checkbox" value=true id="lowercase-choice" checked>
                     <label class="form-check-label" for="lowercase-choice">
                       Lowercase Characters
                     </label>
@@ -51,15 +51,22 @@
                   </div>
                   <div class="mb-3 text-input">
                     <label for="exampleFormControlInput1" class="form-label">Website for password:</label>
-                    <input type="email" class="form-control text-input" id="exampleFormControlInput1" placeholder="www.google.com">
+                    <input type="email" class="form-control text-input" id="websiteInput" placeholder="www.google.com">
                   </div>
+                  <h4 class="error hide" id="error">
+                    Error
+                    </h4>
                   <button type="submit" class="btn btn-outline-primary">Generate Password</button>
-            </div>
+            </form>
             <div class="random-password-container">
                 <h2>
                     Generated Password:
                 </h2>
                 <p class="password">passwordhere</p>
+            </div>
+            <div>
+                <button type="button" class="btn btn-outline-success">Save Password</button>
+                <button type="button" class="btn btn-outline-danger">Regenerate Password</button>
             </div>
             <div>
                 <button type="button" class="btn btn-outline-secondary">Saved Passwords</button>

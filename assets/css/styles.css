@@ -69,3 +69,13 @@ body {
 .mb-3 {
     margin-top: 1.4rem;
 }
+
+.error {
+    color: red;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.hide {
+    display: none;
+}

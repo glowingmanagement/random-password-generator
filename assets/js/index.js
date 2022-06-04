@@ -52,10 +52,10 @@ const characterChoice = [
   "#",
   "@",
 ];
-let generatedPassword = [];
 
 // onSubmit view user data and add to variables
 const handleSubmit = (event) => {
+  let generatedPassword = [];
   event.preventDefault();
   const name = [
     "lowercase-choice",
@@ -64,24 +64,28 @@ const handleSubmit = (event) => {
     "special-choice",
   ];
   chosenCharacters = [];
-  generatedPassword = [];
+  //   generatedPassword = [];
   name.forEach((element) => isChecked(element));
   passwordLength = $("#character-length").val();
   websiteChosen = $("#websiteInput").val();
 
   const isValidated = validateForm();
-  console.log(isValidated);
 
   if (isValidated) {
     for (let i = 0; i < passwordLength - chosenCharacters.length; i += 1) {
       // choose random number between 1 & length of array to determine which character type to use
       const randomCharacter = getRandomNumber(0, chosenCharacters.length);
-      console.log(chosenCharacters);
       const passwordCharacter = chosenCharacters[randomCharacter];
 
       getRandomCharacters(passwordCharacter, generatedPassword);
     }
-    console.log(generatedPassword);
+    addEachCharacter(chosenCharacters, generatedPassword);
+
+    const shufflePassword = shuffleArray(generatedPassword);
+
+    const passwordString = shufflePassword.join("");
+
+    displayPassword(passwordString);
   }
 };
 
@@ -117,7 +121,11 @@ const validateForm = () => {
 
 // generate random password
 
-const addEachCharacter = () => {};
+const addEachCharacter = (passwordRequirements, generatedPassword) => {
+  for (let i = 0; i < passwordRequirements.length; i += 1) {
+    getRandomCharacters(passwordRequirements[i], generatedPassword);
+  }
+};
 
 const getRandomCharacters = (passwordCharacter, generatedPassword) => {
   // get random character of the chosen type and add it to array
@@ -142,6 +150,20 @@ const getRandomNumber = (min, max) => {
   return Math.floor(Math.random() * (max - min) + min);
 };
 
+const shuffleArray = (generatedPassword) => {
+  for (let i = 0; i < generatedPassword.length; i += 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [generatedPassword[i], generatedPassword[j]] = [
+      generatedPassword[j],
+      generatedPassword[i],
+    ];
+  }
+  return generatedPassword;
+};
+
+const displayPassword = (password) => {
+  $("#password").text(password);
+};
 // store password in local storage
 
 // change page on click of button to view saved passwords

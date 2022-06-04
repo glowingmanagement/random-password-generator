@@ -1,0 +1,71 @@
+:root {
+    /* CSS HEX */
+--rich-black-fogra-29: #01161eff;
+--midnight-green-eagle-green: #124559ff;
+--teal-blue: #598392ff;
+--cambridge-blue: #aec3b0ff;
+--beige: #eff6e0ff;
+}
+
+html {
+    font-size: 10px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
+    background-color: var(--midnight-green-eagle-green);
+    color: var(--rich-black-fogra-29);
+}
+
+.generator-container {
+    background-color: #e4e4e4;
+    width: 70%;
+    margin: 100px auto;
+    padding-bottom: 80px;
+    border-radius: 10px;
+    box-shadow: -0.3rem 0.3rem 1rem var(--cambridge-blue);
+  }
+
+.page-title {
+    text-align: center;
+    font-size: 4rem;
+    padding-top: 1.5rem;
+}
+
+.page-text {
+    text-align: center;
+    margin: 1rem;
+}
+
+.options-container {
+    font-size: 1.6rem;
+    padding: 2rem;
+}
+
+.random-password-container {
+    padding-top: 1.5rem;
+}
+
+.password {
+    background-color: var(--cambridge-blue);
+    width: auto;
+    padding: 1.5rem;
+}
+
+.btn {
+    font-size: 1.7rem;
+    margin-top: 2rem;
+}
+
+.text-input {
+    font-size: 1.7rem;
+}
+
+.mb-3 {
+    margin-top: 1.4rem;
+}

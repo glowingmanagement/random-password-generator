@@ -176,12 +176,41 @@ const writeToLocalStorage = (key, value) => {
   localStorage.setItem(key, stringifiedValue);
 };
 
-const savePassword = () => {
-  if (newPassword != "") {
-    writeToLocalStorage($("#websiteInput").val(), newPassword);
+const readFromLocalStorage = (key, defaultValue) => {
+  // get from LS using key name
+  const dataFromLS = localStorage.getItem(key);
+
+  // parse data from LS
+  const parsedData = JSON.parse(dataFromLS);
+
+  if (parsedData) {
+    return parsedData;
+  } else {
+    return defaultValue;
   }
 };
 
+const savePassword = () => {
+  if (newPassword != "") {
+    const website = $("#websiteInput").val().toLowerCase();
+    const passwordData = readFromLocalStorage("passwords", []);
+    if (!isDuplicate(passwordData, website)) {
+      passwordData.push({ website, newPassword });
+      writeToLocalStorage("passwords", passwordData);
+    }
+  }
+};
+
+// check if website already exists
+const isDuplicate = (passwordData, website) => {
+  let duplicate = false;
+  passwordData.forEach((element) => {
+    if (element.website === website) {
+      duplicate = true;
+    }
+  });
+  return duplicate;
+};
 // change page on click of button to view saved passwords
 
 // delete password

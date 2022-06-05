@@ -14,3 +14,8 @@ You can find the application deployed to github pages [here](https://glowingmana
 - Javascript
 - JQuery
 - GitHub Pages
+
+## Screenshots
+
+![Index Page](./assets/images/Random%20Password%20Generator%20Index.png)
+![Saved Passwords Page](./assets/images/Random%20Password%20Generator%20Saved.png)

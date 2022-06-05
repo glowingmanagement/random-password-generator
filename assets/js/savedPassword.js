@@ -38,5 +38,5 @@ const displayPasswords = (element) => {
 onReady();
 
 $("#homeBtn").click(function () {
-  location.href = "../../index.html";
+  location.href = "./index.html";
 });

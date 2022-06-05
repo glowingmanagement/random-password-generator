@@ -24,13 +24,18 @@ const togglePassword = () => {
 };
 
 const onReady = () => {
-  const data = readFromLocalStorage();
-  console.log(data);
+  const data = readFromLocalStorage("passwords", []);
+  data.forEach((element) => displayPasswords(element));
+};
+
+const displayPasswords = (element) => {
+  $("#passwordTable").append(`<tr>
+    <td>${element.website}</td>
+    <td>${element.newPassword}</td>
+  </tr>`);
 };
 
 onReady();
-
-$("#togglePassword").click(togglePassword);
 
 $("#homeBtn").click(function () {
   location.href = "../../index.html";

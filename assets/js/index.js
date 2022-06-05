@@ -226,5 +226,5 @@ $("#optionForm").submit(handleSubmit);
 $("#delete").click(deletePassword);
 $("#save").click(savePassword);
 $("#savedPage").click(function () {
-  location.href = "./savedPasswords.html";
+  window.location.href = "./savedPasswords.html";
 });

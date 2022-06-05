@@ -79,3 +79,11 @@ body {
 .hide {
     display: none;
 }
+
+.returnBtn {
+    margin: 2rem;
+}
+
+.table {
+    font-size: 1.6rem;
+}

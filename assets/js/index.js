@@ -194,21 +194,24 @@ const savePassword = () => {
   if (newPassword != "") {
     const website = $("#websiteInput").val().toLowerCase();
     const passwordData = readFromLocalStorage("passwords", []);
-    if (!isDuplicate(passwordData, website)) {
+    if (!isDuplicate(passwordData, website, newPassword)) {
       passwordData.push({ website, newPassword });
-      writeToLocalStorage("passwords", passwordData);
     }
+    writeToLocalStorage("passwords", passwordData);
   }
 };
 
 // check if website already exists
-const isDuplicate = (passwordData, website) => {
+const isDuplicate = (passwordData, website, newPassword) => {
   let duplicate = false;
-  passwordData.forEach((element) => {
-    if (element.website === website) {
+  console.log(passwordData);
+  for (let i = 0; i < passwordData.length; i++) {
+    if (passwordData[i].website === website) {
+      passwordData[i] = { website: website, newPassword: newPassword };
       duplicate = true;
     }
-  });
+  }
+  console.log(duplicate);
   return duplicate;
 };
 // change page on click of button to view saved passwords
